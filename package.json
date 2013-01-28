@@ -8,6 +8,9 @@
         , {"type": "git", "url": "git@bitbucket.com:elmerbulthuis/jshtml.git"}
         ]
     , "main": "index.js"
+    , "scripts": {
+        "test": "node test"
+    }
     ,   "dependencies":	{
         "2kenizer": "*"
         , "sjs": "*"
