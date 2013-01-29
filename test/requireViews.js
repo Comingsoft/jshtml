@@ -39,7 +39,7 @@ function fileTest(fileMatch, fileOptions){
 			cb();
 		}
 
-		var fn = require(fileMatch[1]);
+		var fn = require(fileMatch[0]);
 		fn.call(fileOptions.scope, write, end, fileOptions.locals);	
 	}
 }
