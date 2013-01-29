@@ -1,20 +1,25 @@
 {
     "name":	"jshtml"
     , "description":	"razor template engine"
-    , "version":	"0.2.3"
+    , "version":	"0.2.4"
     , "author":	"Elmer Bulthuis <elmerbulthuis@gmail.com>"
     , "repositories":	[
-        {"type": "git", "url": "git@github.com:elmerbulthuis/jshtml.git"}
-        , {"type": "git", "url": "git@bitbucket.com:elmerbulthuis/jshtml.git"}
-        ]
-    , "main": "index.js"
-    ,   "dependencies":	{
+        {
+            "type": "git"
+            , "url": "git@github.com:elmerbulthuis/jshtml.git"
+        }
+    ]
+
+    , "main": "lib/jshtml.js"
+    , "scripts": {
+        "test": "node test"
+    }
+    
+    , "dependencies":	{
         "2kenizer": "*"
         , "sjs": "*"
 	}
-    ,   "devDependencies":	{
-    	"zombie":	"*"
-    	, "express":	"*"
-    	, "globalize":	"*"
+    , "devDependencies":	{
 	}
+
 }

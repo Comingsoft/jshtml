@@ -1,8 +1,8 @@
 var assert = require('assert');
 var path = require('path');
 var fs = require('fs');
-var jsHtml = require('jshtml');
-var util = require('../lib/util');
+var jsHtml = require('../lib/jshtml');
+var tools = require('../lib/tools');
 
 var templateList	=	[];
 var templateIndex	=	0;
@@ -80,7 +80,7 @@ function loadDirectory(dirPath, options)	{
 	catch(ex)	{
 	}
 	var extendOptions = JSON.parse(extendOptionsJson);
-	var options = util.extend({}, options, extendOptions);
+	var options = tools.extend({}, options, extendOptions);
 	
 	fs.readdirSync(dirPath).forEach(function(subPath) {
 		var filePath = dirPath + '/' + subPath;
@@ -102,14 +102,14 @@ function loadFile(filePath, options)	{
 	catch(ex)	{
 	}
 	var extendOptions = JSON.parse(extendOptionsJson);
-	var options = util.extend({}, options, extendOptions);
+	var options = tools.extend({}, options, extendOptions);
 
 	
 	var content = fs.readFileSync(match[1] + '.jshtml', 'utf-8');
 	templateList.push({
 		name: match[3]
 		, content:	content
-		, options:	util.extend({}, options)
+		, options:	tools.extend({}, options)
 		, totalDuration:	0
 		, writeCount:	0
 	});

@@ -1,6 +1,6 @@
 {
 	"debug": true
-	, "trace": true
+	, "trace": false
 
 	, "scope": {
 		"title": "This"

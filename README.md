@@ -1,5 +1,8 @@
 # JsHtml
 
+Master: [![Build Status](https://travis-ci.org/elmerbulthuis/jshtml.png?branch=master)](https://travis-ci.org/elmerbulthuis/jshtml)
+Develop: [![Build Status](https://travis-ci.org/elmerbulthuis/jshtml.png?branch=develop)](https://travis-ci.org/elmerbulthuis/jshtml)
+
 JavaScript razor view engine. The razor syntax (also used in asp.net mvc)
 keeps your html clean and allows you to use javascript in your templates.
 
