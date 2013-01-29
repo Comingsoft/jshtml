@@ -1,8 +1,6 @@
 .*
 *~
 *.log
-test.js
-build.js
 examples/
 test/
 node_modules/
