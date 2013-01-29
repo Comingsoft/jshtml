@@ -39,16 +39,12 @@ function fileTest(fileMatch, fileOptions){
 	return function(cb){
 		var actual = '';
 
-		var fnSrc = '';
-		var parser = new jshtml.Parser(function(data){
-			fnSrc += data;
-		}, fileOptions);
-		parser.end(fs.readFileSync(fileMatch[1] + '.jshtml', 'utf-8'));
+		var src = fs.readFileSync(fileMatch[1] + '.jshtml', 'utf-8');
+		src = jshtml.parse(src, fileOptions);
+		src = sjs.parse(src, fileOptions);
 
-		var fn = new Function('write', 'end', 'tools', 'locals', sjs.parse(fnSrc, fileOptions));
-
+		var fn = new Function('write', 'end', 'tools', 'locals', src);
 		fn.call(fileOptions.scope, fn_write, fn_end, tools, fileOptions.locals);
-
 
 		function fn_write(){
 			var argumentCount = arguments.length;
