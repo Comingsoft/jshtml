@@ -1,54 +1,49 @@
 var path = require('path');
 var fs = require('fs');
-var jsHtml = require('../lib/jshtml');
+var jshtml = require('../lib/jshtml');
 var tools = require('../lib/tools');
+var assert = require('assert');
 
-function runDirectory(dirPath, options)	{
-	var extendOptionsJson = '{}';
-	try	{
-		extendOptionsJson = fs.readFileSync(dirPath + '.json', 'utf-8');
+describe('requireViews', directoryTest(path.normalize(__dirname + '/../examples'), {}));
+
+
+function directoryTest(rootPath, rootOptions){
+	if(fs.existsSync(rootPath + '.json')){
+		rootOptions = tools.extend({}, rootOptions, require(rootPath + '.json'));
 	}
-	catch(ex)	{
+
+	return function(){
+		fs.readdirSync(rootPath).forEach(function(subPath) {
+			var filePath = path.join(rootPath, subPath);
+			var fileStat = fs.statSync(filePath);
+			var fileMatch = /^(.+)\.jshtml$/.exec(filePath);
+
+			if(fileStat.isDirectory()) {
+				describe(subPath, directoryTest(filePath, rootOptions));
+			}
+			if(fileStat.isFile() && fileMatch) {
+				it(subPath, fileTest(fileMatch, rootOptions));
+			}
+		});
 	}
-	var extendOptions = JSON.parse(extendOptionsJson);
-	var options = tools.extend({}, options, extendOptions);
-	
-	fs.readdirSync(dirPath).forEach(function(subPath) {
-		var filePath = dirPath + '/' + subPath;
-		var fileStat = fs.statSync(filePath);
-		if(fileStat.isDirectory()) runDirectory(filePath, options);
-		if(fileStat.isFile()) runFile(filePath, options);
-	});
 }
 
-function runFile(filePath, options)	{
-	var match = /((.*\/)?(.+))\.jshtml$/i.exec(filePath);
-	if (!match) return;
-
-	console.log('[' + match[3] + ']');
-
-
-	var extendOptionsJson = '{}';
-	try	{
-		extendOptionsJson = fs.readFileSync(match[1] + '.json', 'utf-8');
+function fileTest(fileMatch, fileOptions){
+	if(fs.existsSync(fileMatch[1] + '.json')){
+		fileOptions = tools.extend({}, fileOptions, require(fileMatch[1] + '.json'));
 	}
-	catch(ex)	{
+
+	return function(cb){
+		function write() {}
+		function end() {
+			cb();
+		}
+
+		var fn = require(fileMatch[1]);
+		fn.call(fileOptions.scope, write, end, fileOptions.locals);	
 	}
-	var extendOptions = JSON.parse(extendOptionsJson);
-	var options = tools.extend({}, options, extendOptions);
-
-
-	function write() {}
-	function end() {}
-
-	var fn = require(match[1]);
-	fn.call(options.scope, write, end, options.locals);	
 }
 
-runDirectory(path.normalize(__dirname + '/../examples/views/simple'), {
-	locals:	{
-		body: ''
-		, partial: function(){}
-	}
-});
+
+
 
