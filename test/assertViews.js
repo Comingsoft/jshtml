@@ -1,7 +1,7 @@
 var assert = require('assert');
 var path = require('path');
 var fs = require('fs');
-var jsHtml = require('jshtml');
+var jsHtml = require('../lib/jshtml');
 var tools = require('../lib/tools');
 
 var whitespaceRegex = /\s+/g;

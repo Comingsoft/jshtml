@@ -4,10 +4,13 @@
     , "version":	"0.2.3"
     , "author":	"Elmer Bulthuis <elmerbulthuis@gmail.com>"
     , "repositories":	[
-        {"type": "git", "url": "git@github.com:elmerbulthuis/jshtml.git"}
-        , {"type": "git", "url": "git@bitbucket.com:elmerbulthuis/jshtml.git"}
-        ]
-    , "main": "index.js"
+        {
+            "type": "git"
+            , "url": "git@github.com:elmerbulthuis/jshtml.git"
+        }
+    ]
+
+    , "main": "lib/jshtml.js"
     , "scripts": {
         "test": "node test"
     }
