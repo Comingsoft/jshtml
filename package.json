@@ -17,7 +17,6 @@
     
     , "dependencies":	{
         "2kenizer": "*"
-        , "sjs": "*"
 	}
     , "devDependencies":	{
 	   "mocha": "*"
