@@ -28,14 +28,6 @@ If you want to run the tests, be sure to install the devDependencies first by us
 	<body>
 	
 	<ul class="Task">
-	@locals.taskList.forEach(function(task, index) {
-		<li class="@(index % 2 ? "Odd" : "Even")">
-		@tag('a', {href: '/task/' + task.id}, task.name)
-		</li>
-		});
-	</ul>
-	
-	<ul class="Task">
 	@for(var taskIndex = 0, taskCount = locals.taskList.length; taskIndex < taskCount; taskIndex ++){
 		var task = locals.taskList[taskIndex];
 		<li class="@(taskIndex % 2 ? "Odd" : "Even")">
