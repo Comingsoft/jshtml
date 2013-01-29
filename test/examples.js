@@ -1,6 +1,5 @@
 var path = require('path');
 var fs = require('fs');
-var sjs = require('sjs');
 var jshtml = require('../.');
 var tools = require('../lib/tools');
 var assert = require('assert');
@@ -41,7 +40,6 @@ function fileTest(fileMatch, fileOptions){
 
 		var src = fs.readFileSync(fileMatch[1] + '.jshtml', 'utf-8');
 		src = jshtml.parse(src, fileOptions);
-		src = sjs.parse(src, fileOptions);
 
 		var fn = new Function('write', 'end', 'tools', 'locals', src);
 		fn.call(fileOptions.scope, fn_write, fn_end, tools, fileOptions.locals);
