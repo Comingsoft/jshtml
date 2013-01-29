@@ -20,9 +20,6 @@
         , "sjs": "*"
 	}
     , "devDependencies":	{
-    	"zombie":	"*"
-    	, "express":	"*"
-    	, "globalize":	"*"
 	}
 
 }
