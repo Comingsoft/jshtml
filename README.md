@@ -57,90 +57,14 @@ Also check out the examples in the examples folder!
 
 ## Express
 
-Use it with express!
+use jshtml-express to use it with express 3!
 
-
-Install express and jshtml:
-	
-	npm install express
-	npm install jshtml
-	
-
-Create a simple server (/server.js):
-	
-	var express = require('express');
-	
-	var port = parseInt(process.argv.pop());
-	var app = express.createServer();
-	app.configure(function() {
-		app.use(express.bodyParser());
-		app.use(app.router);
-	});
-	
-	app.set('view engine', 'jshtml');
-	app.get('/', function(req, res) {
-		res.render('index', {
-			title : 'Test!',
-			message : 'De groeten'
-		});
-	});
-	
-	app.listen(port);
-
-
-Create a layout template (/views/layout.jshtml):
-	
-	<html>
-	<head>
-	<title>jshtml</title>
-	</head>
-	
-	<body>
-	@writeBody();
-	</body>
-	</html>
-
-
-Create an index template (/views/index.jshtml):
-	
-	<h1>@locals.title</h1>
-	<p>
-	@locals.message
-	</p>
-
-
-Start your server:
-	
-	node server.js 8080
-
-
-Browse to:
-	
-	http://localhost:8080
-
-
-Result:
-	
-	<html> 
-	<head> 
-	<title>jshtml</title> 
-	</head> 
-	 
-	<body> 
-	<h1>Test!</h1> 
-	<p> 
-	De groeten
-	</p> 
-	 
-	</body> 
-	</html>
-
-
+check out https://github.com/elmerbulthuis/jshtml-express for more info.
 
 
 ## License 
 
-Copyright (c) 2011 Elmer Bulthuis <elmerbulthuis@gmail.com>
+Copyright (c) 2011-2013 Elmer Bulthuis <elmerbulthuis@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
