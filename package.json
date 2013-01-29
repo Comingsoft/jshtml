@@ -11,13 +11,15 @@
     , "scripts": {
         "test": "node test"
     }
-    ,   "dependencies":	{
+    
+    , "dependencies":	{
         "2kenizer": "*"
         , "sjs": "*"
 	}
-    ,   "devDependencies":	{
+    , "devDependencies":	{
     	"zombie":	"*"
     	, "express":	"*"
     	, "globalize":	"*"
 	}
+
 }
