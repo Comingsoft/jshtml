@@ -12,7 +12,7 @@
 
     , "main": "lib/jshtml.js"
     , "scripts": {
-        "test": "node test"
+        "test": "mocha test/* --reporter spec"
     }
     
     , "dependencies":	{
@@ -20,6 +20,7 @@
         , "sjs": "*"
 	}
     , "devDependencies":	{
-	}
+	   "mocha": "*"
+    }
 
 }
