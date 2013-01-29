@@ -10,7 +10,7 @@
         }
     ]
 
-    , "main": "lib/jshtml.js"
+    , "main": "index.js"
     , "scripts": {
         "test": "mocha test/* --reporter spec"
     }
