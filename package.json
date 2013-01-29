@@ -1,7 +1,7 @@
 {
     "name":	"jshtml"
     , "description":	"razor template engine"
-    , "version":	"0.2.4"
+    , "version":	"0.3.0"
     , "author":	"Elmer Bulthuis <elmerbulthuis@gmail.com>"
     , "repositories":	[
         {
@@ -16,7 +16,7 @@
     }
     
     , "dependencies":	{
-        "2kenizer": "*"
+        "2kenizer": ">=0.1.6"
 	}
     , "devDependencies":	{
 	   "mocha": "*"
